@@ -6,4 +6,5 @@ public class Buildings {
     String [] plants; // jakie rośliny można tam przechowywać
     Double animalCapacity; // ile zwierząt pomieści
     Double plantCapacity; // ile roślin pomieści
+    Boolean built; // czy zbudowany
 }
