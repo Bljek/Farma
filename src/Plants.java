@@ -1,13 +1,31 @@
 public class Plants {
-    String name; // nazwa rośliny
-    String type; // typ rośliny
+    final String name; // nazwa rośliny
     Double seedPrice; // cena zakupu
-    Double tillageCost; // cena uprawy
-    Double protectionCost; // koszt ochrony
-    Integer yield; // ilość plonów
-    Integer collections; // kiedy zbierać
+    Double tillageCost; // cena zasiania
+    Double protectionCost; // koszt uprawy
+    Double yield; // ilość plonów
+    Integer sowingTime; // kiedy zbierać
     Integer timeNeeded; // długość rośnięcia
-    Integer harvestCost; // koszt zbioru
+    Double harvestCost; // koszt zbioru
     Double sellingPrice; // cena skupu
     Boolean readyToHarvest; // czy gotów do zbioru
+    Integer whenToHarvest; // kiedy zbierać
+    String warehouse;
+
+    public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse) {
+        this.name = name;
+        this.seedPrice = seedPrice;
+        this.tillageCost = tillageCost;
+        this.protectionCost = protectionCost;
+        this.yield = yield;
+        this.sowingTime = sowingTime;
+        this.timeNeeded = timeNeeded;
+        this.harvestCost = harvestCost;
+        this.sellingPrice = sellingPrice;
+        this.warehouse = warehouse;
+    }
+    public String toString(){
+        return "Nazwa: " + name + "\nCena nasion: " +seedPrice+"zł\nKoszt zasiania: " + tillageCost + "zł\nKoszt uprawy: " + protectionCost + "zł/tydzień\nWydajność plonów: " + yield + "t\nW którym tygodniu siać: " + sowingTime + "\nDługośc wzrostu: " + timeNeeded +" tygodni\nKoszt zebrania: "+harvestCost+"zł\nCena skupu: "+sellingPrice+"zł/t\nMiejsce składowania: "+warehouse;
+    }
+
 }

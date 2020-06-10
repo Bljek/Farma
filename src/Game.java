@@ -7,7 +7,22 @@ public class Game {
     static Scanner in = new Scanner(System.in);
     static Random rand = new Random();
     static Boolean welcome = true;
-        static void menu() {
+    static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos");
+    static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos");
+    static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole");
+    static Plants bobik = new Plants("Bobik",550.0,400.0,42.7,3.5,10,22,350.0,900.0,"silos");
+    static Plants jablka = new Plants("Jabłka",0.0,0.0,0.0,0.0,0,0,0.0,0.0,"stodoła");
+    static Plants wisnie = new Plants("Wiśnie",0.0,0.0,0.0,0.0,0,0,0.0,0.0,"stodoła");
+    static Animals swinie = new Animals();
+    static Animals krowy = new Animals();
+    static Animals kozy = new Animals();
+    static Animals owce = new Animals();
+    static Animals konie = new Animals();
+    static Animals kury = new Animals();
+    static Animals pszczoly = new Animals();
+    static Animals psy = new Animals();
+
+    static void menu() {
 
             if (welcome) {
                 System.out.println("#######################################################");
@@ -31,7 +46,8 @@ public class Game {
                         startGry();
                         break;
                     case 2:
-                        celGry();
+                        System.out.println("#######################################################");
+                        System.out.println("\n Twoim celem jest rozbudować Twoje gospodarstwo tak, \naby posiadać 20 ha ziemi, 5 różnych rodzajów zwierząt \n\t  oraz zasianych 5 różnych rodzajów roślin. \n\n\t\t\t\t  Powodzenia!\n");
                         break;
                     case 3:
                         katalog();
@@ -197,17 +213,10 @@ public class Game {
         System.out.println("Pieniądze: " + Cash + "zł \nPowierzchnia: " + farmArea + "ha");
 
     }
-
-    static void celGry() {
-        System.out.println("#######################################################");
-        System.out.println("\n Twoim celem jest rozbudować Twoje gospodarstwo tak, \naby posiadać 20 ha ziemi, 5 różnych rodzajów zwierząt \n\t  oraz zasianych 5 różnych rodzajów roślin. \n\n\t\t\t\t  Powodzenia!\n");
-    }
-
     static void katalog() {
             int katalogOption;
         System.out.println("#######################################################");
         System.out.println("\n\t\t\t\t Witamy w katalogu! \n\t   Tutaj znajdziesz wszystkie informacje \n\t   o budynkach, zwierzętach i roślinach!\n\n\t\t    O czym chciałbyś poczytać?\n");
-        System.out.println("#######################################################");
         do {
             katalogMenu();
             while(!in.hasNextInt())
@@ -236,6 +245,7 @@ public class Game {
 
     }
     static void katalogMenu(){
+        System.out.println("#######################################################");
         System.out.println("1. Budynki\n2. Zwierzęta\n3. Rośliny\n4. Powrót do MENU");
     }
     static void katalogBudynkow(){
@@ -263,10 +273,96 @@ public class Game {
         while (buildingOptionMenu != 11);
     }
     static void katalogZwierzat(){
-            System.out.println("Witamy w katalogu zwierząt");
+        int animalsOptionMenu;
+        System.out.println("#######################################################");
+        System.out.println("\n\t\t\t Witamy w katalogu zwierząt\n Tutaj znajdziesz informacje o wszystkich zwierzętach,\n\tktóre możesz chodować na swoim gospodarstwie!\n\n\t\tO którym zwierzęciu chcesz poczytać teraz?\n");
+        do {
+            showAnimalsCatalog();
+            while (!in.hasNextInt()) {
+                in.nextLine();
+                System.out.println("Proszę wprowadzić cyfrę");
+            }
+            animalsOptionMenu = in.nextInt();
+            if (animalsOptionMenu > 9) {
+                System.out.println("Proszę wybrać poprawną opcje");
+            } else switch (animalsOptionMenu) {
+                case 1:
+                    System.out.println("#######################################################");
+                    System.out.println(swinie);
+                    break;
+                case 2:
+                    System.out.println("#######################################################");
+                    System.out.println(krowy);
+                    break;
+                case 3:
+                    System.out.println("#######################################################");
+                    System.out.println(kozy);
+                    break;
+                case 4:
+                    System.out.println("#######################################################");
+                    System.out.println(owce);
+                    break;
+                case 5:
+                    System.out.println("#######################################################");
+                    System.out.println(konie);
+                    break;
+                case 6:
+                    System.out.println("#######################################################");
+                    System.out.println(kury);
+                    break;
+                case 7:
+                    System.out.println("#######################################################");
+                    System.out.println(pszczoly);
+                    break;
+                case 8:
+                    System.out.println("#######################################################");
+                    System.out.println(psy);
+                    break;
+            }
+        }
+        while (animalsOptionMenu != 9);
     }
     static void katalogRoslin(){
-            System.out.println("Witamy w katalogu roślin");
+            int plantOptionMenu;
+        System.out.println("#######################################################");
+        System.out.println("\n\t\t\t Witamy w katalogu roślin\n Tutaj znajdziesz informacje o wszystkich roślinach,\n\tktóre możesz chodować na swoim gospodarstwie!\n\n\t\tO której roślinie chcesz poczytać teraz?\n");
+        do {
+            showPlantsCatalog();
+            while (!in.hasNextInt()) {
+                in.nextLine();
+                System.out.println("Proszę wprowadzić cyfrę");
+            }
+            plantOptionMenu = in.nextInt();
+            if (plantOptionMenu > 7) {
+                System.out.println("Proszę wybrać poprawną opcje");
+            } else switch (plantOptionMenu) {
+                case 1:
+                    System.out.println("#######################################################");
+                    System.out.println(rzepak);
+                    break;
+                case 2:
+                    System.out.println("#######################################################");
+                    System.out.println(pszenica);
+                    break;
+                case 3:
+                    System.out.println("#######################################################");
+                    System.out.println(buraki);
+                    break;
+                case 4:
+                    System.out.println("#######################################################");
+                    System.out.println(bobik);
+                    break;
+                case 5:
+                    System.out.println("#######################################################");
+                    System.out.println(jablka);
+                    break;
+                case 6:
+                    System.out.println("#######################################################");
+                    System.out.println(wisnie);
+                    break;
+            }
+        }
+        while (plantOptionMenu != 7);
     }
     static void showMenu() {
         System.out.println("#######################################################");
@@ -276,6 +372,13 @@ public class Game {
             System.out.println("#######################################################");
             System.out.println("1. Chlew\n2. Obora\n3. Koziarnia\n4. Owczarnia\n5. Stajnia\n6. Kurnik\n7. Pasieka\n8. Kojec\n9. Silos\n10. Stodoła\n11. Powrót");
     }
+    static void showPlantsCatalog(){
+        System.out.println("#######################################################");
+        System.out.println("1. Rzepak\n2. Pszenica\n3. Buraki\n4. Bobik\n5. Jabłka\n6. Wiśnie\n7. Powrót do katalogu głównego");
+    }
+    static void showAnimalsCatalog(){
+        System.out.println("#######################################################");
+        System.out.println("1. Świnie\n2. Krowy\n3. Kozy\n4. Owce\n5. Konie\n6. Kury\n7. Pszczoły\n8. Psy\n 9. Powrót do katalogu głównego");
 
-
+    }
 }
