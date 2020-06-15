@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Animals {
     String name; // nazwa
     Double price; // cena zakupu
@@ -12,5 +14,18 @@ public class Animals {
     public Animals(String name, double price){
         this.name = name;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Nazwa: " + name +
+                "\nCena: " + price +
+                "\nWaga: " + weight +
+                "\nweightGain=" + weightGain +
+                "\nreproductionAge=" + reproductionAge +
+                "\nfoodNeeded=" + foodNeeded +
+                "\nfoodName=" + Arrays.toString(foodName) +
+                "\nreproductionChance=" + reproductionChance +
+                "\nreproductive=" + reproductive;
     }
 }
