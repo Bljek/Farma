@@ -15,7 +15,6 @@ public class Animals {
     Boolean pregnant; // czy w ciąży
     Integer birthday; // kiedy urodzi
     Integer litter; // ilość miotu
-
     Boolean reproductive; // czy może się rozmnażać
     String [] benefit; // Co daje
 

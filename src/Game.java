@@ -11,13 +11,13 @@ public class Game {
     static int animalSpecies = 0;
     static int plantSpecies = 0;
     static boolean running = true;
-    String[] petNames = {"Elsa", "Timon", "Pumba", "Odie", "Nela", "Reksio", "Krecik", "Snoopy", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Dzwonnik", "Pat", "Kibic", "Peppa", "Tarzan", "Simba", "Tramp", "Shang", "Gaston", "Megara", "Milo", "Bambi", "Bernard", "Lilo", "Stich", "Chudy", "Bernard", "Lilo", "Stich", "Chudy", "Buzz", "Andy", "Rex", "Nemo", "Dory", "Olaf", "Zazu", "Klakier", "Toudie", "Pracuś", "Diego", "Sid", "Toudie", "Pracuś", "Diego", "Sid", "Bolek", "Lolek", "Yogi", "Doris", "Pluto", "Gucio", "Shrek", "Mat", "Ciastek", "Kojot", "Kermit", "Pigi", "Ciastek", "Kojot", "Kermit", "Pigi", "Fred", "Wilma", "Barney", "Eddie", "Loudie", "Plastuś", "Alex", "Tweety", "Roger", "Ważniak", "Pirat", "Arielka", "Roger", "Ważniak", "Pirat", "Arielka", "Śnieżka", "Migotka", "Kopciuszek", "Bella", "Smerf", "Jerry", "Tom", "Herkules", "Bowie", "Salma", "JuliaRoberts", "Pink", "Bowie", "Salma", "JuliaRoberts", "Pink", "Biber", "JohnWayne", "WoodyAllen", "Justin", "Leonardo", "Clooney", "LadyGaga", "Mendes", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Doda", "IceCube", "Fatboy", "Douglas", "Twiggy", "Akon", "Kora", "JohnnyDeep", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "Hilton", "Ariana", "NicoleKidman", "Newton", "Einstein", "Orange", "Rainbow", "Weekend", "Stone", "Latte", "Coffee", "Sky", "Stone", "Latte", "Coffee", "Sky", "Tuesday", "Note", "Cloud", "Apple", "Hotdog", "Burger", "Shadow", "Monday", "Shy", "Forest", "Pillow", "Doll", "Shy", "Forest", "Pillow", "Doll", "Ball", "Dress", "Lucky", "Shine", "Tomato", "Winter", "Summer", "Spring", "Flower", "Clover", "Mind", "Violet", "Flower", "Clover", "Mind", "Violet", "Blue", "Green", "Yellow", "Honey", "Sun", "Jelly", "Fair", "Fire", "Amour", "Mall", "Czikita", "Tornado", "Amour", "Mall", "Czikita", "Tornado", "Sztanga", "Rewolwer", "Bandzior", "Flądra", "Burza", "Tajfun", "Szeryf", "Fosa", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Boczek", "Sushi", "Mecenas", "Prawnik", "Tuńczyk", "Budyń", "Parasol", "Spacja", "Fotka", "Akapit", "Mamrot", "Demon", "Fotka", "Akapit", "Mamrot", "Demon", "Bajzel", "Pasztet", "Zamek", "Szkoła", "Taniec", "Tango", "Bukiet", "Bigos", "Ważniak", "Laluś", "Torpeda", "Pędziwiatr", "Ważniak", "Laluś", "Torpeda", "Pędziwiatr", "Ostoja", "Miseczka", "Sarenka", "Patyk", "Sfinx", "Pazurek", "Ogonek", "Ciapek", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Wesołek", "Śliniak", "Brutal", "Skoczek", "Szef", "Kierownik", "Łapacz", "Aport", "Konik", "Kleks", "Konik", "Kleks"};
-    static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos", false, 0);
-    static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos", false, 0);
-    static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole", false, 0);
-    static Plants bobik = new Plants("Bobik",550.0,400.0,42.7,3.5,10,22,350.0,900.0,"silos", false, 0);
-    static Plants jablka = new Plants("Jabłka",800.0,720.0,40.3,25,16,326,850.0,1020.0,"stodoła", false, 0);
-    static Plants wisnie = new Plants("Wiśnie",600.0,670.0,23.5,20.0,12,332,700.0,700.0,"stodoła", false, 0);
+    String[] petNames = {"Elsa", "Timon", "Pumba", "Odie", "Nela", "Reksio", "Krecik", "Snoopy", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Tarzan", "Simba", "Tramp", "Shang", "Gaston", "Megara", "Milo", "Bambi", "Bernard", "Lilo", "Stich", "Chudy", "Buzz", "Andy", "Rex", "Nemo", "Dory", "Olaf", "Zazu", "Klakier", "Toudie", "Pracuś", "Diego", "Sid", "Bolek", "Lolek", "Yogi", "Doris", "Pluto", "Gucio", "Shrek", "Mat", "Ciastek", "Kojot", "Kermit", "Pigi", "Fred", "Wilma", "Barney", "Eddie", "Loudie", "Plastuś", "Alex", "Tweety", "Roger", "Ważniak", "Pirat", "Arielka", "Śnieżka", "Migotka", "Kopciuszek", "Bella", "Smerf", "Jerry", "Tom", "Herkules", "Bowie", "Salma", "JuliaRoberts", "Pink", "Biber", "JohnWayne", "WoodyAllen", "Justin", "Leonardo", "Clooney", "LadyGaga", "Mendes", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Doda", "IceCube", "Fatboy", "Douglas", "Twiggy", "Akon", "Kora", "JohnnyDeep", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "Hilton", "Ariana", "NicoleKidman", "Newton", "Einstein", "Orange", "Rainbow", "Weekend", "Stone", "Latte", "Coffee", "Sky", "Tuesday", "Note", "Cloud", "Apple", "Hotdog", "Burger", "Shadow", "Monday", "Shy", "Forest", "Pillow", "Doll", "Ball", "Dress", "Lucky", "Shine", "Tomato", "Winter", "Summer", "Spring", "Flower", "Clover", "Mind", "Violet", "Blue", "Green", "Yellow", "Honey", "Sun", "Jelly", "Fair", "Fire", "Amour", "Mall", "Czikita", "Tornado", "Sztanga", "Rewolwer", "Bandzior", "Flądra", "Burza", "Tajfun", "Szeryf", "Fosa", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Boczek", "Sushi", "Mecenas", "Prawnik", "Tuńczyk", "Budyń", "Parasol", "Spacja", "Fotka", "Akapit", "Mamrot", "Demon", "Bajzel", "Pasztet", "Zamek", "Szkoła", "Taniec", "Tango", "Bukiet", "Bigos", "Laluś", "Torpeda", "Pędziwiatr", "Ostoja", "Miseczka", "Sarenka", "Patyk", "Sfinx", "Pazurek", "Ogonek", "Ciapek", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Wesołek", "Śliniak", "Brutal", "Skoczek", "Szef", "Kierownik", "Łapacz", "Aport", "Konik", "Kleks"};
+    static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos", false, 0,0,0);
+    static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos", false, 0,0,0);
+    static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole", false, 0,0,0);
+    static Plants bobik = new Plants("Bobik",550.0,400.0,42.7,3.5,10,22,350.0,900.0,"silos", false, 0,0,0);
+    static Plants jablka = new Plants("Jabłka",800.0,720.0,40.3,25,16,326,850.0,1020.0,"stodoła", false, 0,0,0);
+    static Plants wisnie = new Plants("Wiśnie",600.0,670.0,23.5,20.0,12,332,700.0,700.0,"stodoła", false, 0,0,0);
     static Animals swinie = new Animals("Świnia","",700.0, "chlew", new String [] {"wieprzowina"}, new String []{"pasza","pszenica","trawa"},23 ,25.0,13.4, 27,3.5,5,false, 16,10,false);
     static Animals krowy = new Animals("Krowa","",1500.0, "obora", new String[] {"wołowina", "krowie mleko"}, new String []{"pasza","pszenica","trawa"},27,70.0,6.7,103,110.0,5,false,40,1,false);
     static Animals kozy = new Animals("Koza","",500.0,"koziarnia",new String[]{"kozina","kozie mleko"}, new String[]{"trawa","owoce","śruta"},34,3.5,5.6,25,15.1,5,false,22,2,false);
@@ -301,8 +301,8 @@ public class Game {
                 check();
                 // GAME MENU
                 int gameMenuChoice;
-                Double salePrice = 40000 * (90.0 + rand.nextInt(20)) / 100.0;
-                Double buyPrice = 44000 * (90.0 + rand.nextInt(20)) / 100.0;
+                double salePrice = 40000 * (90.0 + rand.nextInt(20)) / 100.0;
+                double buyPrice = 44000 * (90.0 + rand.nextInt(20)) / 100.0;
                 if (buyPrice < salePrice){
                     buyPrice = salePrice + (2000 * (100.0 + rand.nextInt(10)) / 100.0);
                 }
@@ -817,7 +817,18 @@ public class Game {
                                 System.out.println("Sianie roślin");
                                 break;
                             case 6:
-                                System.out.println("Zbiory");
+                                if(rzepak.readyToHarvest || pszenica.readyToHarvest || buraki.readyToHarvest ||bobik.readyToHarvest ||jablka.readyToHarvest || wisnie.readyToHarvest){
+                                    System.out.println("Możesz zebrać:");
+                                    if (rzepak.readyToHarvest){System.out.println("rzepak");}
+                                    if (pszenica.readyToHarvest){System.out.println("pszenicę");}
+                                    if (buraki.readyToHarvest){System.out.println("buraki");}
+                                    if (bobik.readyToHarvest){System.out.println("bobik");}
+                                    if (jablka.readyToHarvest){System.out.println("jabłka");}
+                                    if (wisnie.readyToHarvest){System.out.println("wiśnie");}
+                                }
+                                else {
+                                    System.out.println("Chcesz żąć tam, gdzie nie posiałeś, i zbierać tam, gdzieś nie rozsypał");
+                                }
                                 break;
                             case 7:
                                 System.out.println("Stan zapasów");
@@ -1070,8 +1081,6 @@ public class Game {
         while (plantOptionMenu != 7);
     }
     static void check(){
-        if (farmArea >= 20 & plantSpecies >= 5 & animalSpecies >= 5){
-            running = false;
-        }else running = true;
+        running = !(farmArea >= 20 & plantSpecies >= 5 & animalSpecies >= 5);
     }
 }

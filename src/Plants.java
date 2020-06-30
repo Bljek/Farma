@@ -1,5 +1,5 @@
 public class Plants {
-    final String name; // nazwa rośliny
+    String name; // nazwa rośliny
     Double seedPrice; // cena zakupu
     Double tillageCost; // cena zasiania
     Double protectionCost; // koszt uprawy
@@ -11,8 +11,10 @@ public class Plants {
     Boolean readyToHarvest; // czy gotów do zbioru
     Integer whenToHarvest; // kiedy zbierać
     String warehouse; // gdzie trzymać
+    Integer ownedSeeds; // ile mam nasion
+    Integer ownedYields; // ile mamy plonów
 
-    public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse, Boolean readyToHarvest, Integer whenToHarvest) {
+    public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse, Boolean readyToHarvest, Integer whenToHarvest, Integer ownedSeeds, Integer ownedYields) {
         this.name = name;
         this.seedPrice = seedPrice;
         this.tillageCost = tillageCost;
@@ -25,6 +27,8 @@ public class Plants {
         this.warehouse = warehouse;
         this.readyToHarvest = readyToHarvest;
         this.whenToHarvest = whenToHarvest;
+        this.ownedSeeds = ownedSeeds;
+        this.ownedYields = ownedYields;
 
     }
     public String toString(){
