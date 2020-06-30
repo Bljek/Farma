@@ -10,7 +10,7 @@ public class Plants {
     Double sellingPrice; // cena skupu
     Boolean readyToHarvest; // czy gotów do zbioru
     Integer whenToHarvest; // kiedy zbierać
-    String warehouse;
+    String warehouse; // gdzie trzymać
 
     public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse, Boolean readyToHarvest, Integer whenToHarvest) {
         this.name = name;

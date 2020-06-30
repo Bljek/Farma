@@ -301,6 +301,11 @@ public class Game {
                 check();
                 // GAME MENU
                 int gameMenuChoice;
+                Double salePrice = 40000 * (90.0 + rand.nextInt(20)) / 100.0;
+                Double buyPrice = 44000 * (90.0 + rand.nextInt(20)) / 100.0;
+                if (buyPrice < salePrice){
+                    buyPrice = salePrice + (2000 * (100.0 + rand.nextInt(10)) / 100.0);
+                }
                 System.out.println("Co chciałbyś zrobić?");
                 do {
                     System.out.println("#######################################################");
@@ -319,11 +324,6 @@ public class Game {
                                 int fieldSaleMenu;
                                 int fieldSaleCounter;
                                 int fieldBuyCounter;
-                                Double salePrice = 40000 * (90.0 + rand.nextInt(20)) / 100.0;
-                                Double buyPrice = 44000 * (90.0 + rand.nextInt(20)) / 100.0;
-                                if (buyPrice < salePrice){
-                                    buyPrice = salePrice + (2000 * (100.0 + rand.nextInt(10)) / 100.0);
-                                }
                                 System.out.println("#######################################################");
                                 System.out.println("Witamy w naszym sklepie, gdzie możesz kupić i sprzedać ziemie! \n1 ha ziemi możesz kupić za:"+ buyPrice + "zł, a sprzedać za "+salePrice+"zł");
                                 System.out.println("1. Kup ziemie\n2. Sprzedaj ziemie\n3. Powrót");
@@ -376,22 +376,457 @@ public class Game {
 
                                 break;
                             case 2:
+                                int buildingSaleMenu;
+                                int buildingTypeMenu;
+                                System.out.println("#######################################################");
+                                System.out.println("Witamy w sklepie Boba Budowniczego, gdzie możesz kupić najróżniejsze budynki!\nJaki budynek chciałbyś kupić?");
+                                System.out.println("1. Przejrzyj katalog budynków\n2. Chlew\n3. Obora\n4. Koziarnia\n5. Owczarnia\n6. Stajnia\n7. Kurnik\n8. Pasieka\n9. Kojec\n10. Silos\n11. Stodoła\n12. Powrót");
+                                while(!in.hasNextInt())
+                                {
+                                    in.nextLine();
+                                    System.out.println("Proszę wprowadzić cyfrę");
+                                }
+                                buildingSaleMenu = in.nextInt();
+                                if (buildingSaleMenu > 12){
+                                    System.out.println("Proszę wybrać poprawną opcje");
+                                }else {
+                                    switch (buildingSaleMenu){
+                                        case 1:
+                                            katalogBudynkow();
+                                            break;
+                                        case 2:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mały chlew\n2. Średni chlew\n3. Duży chlew \n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malyChlew.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malyChlew.price;
+                                                            malyChlew.built=true;
+                                                            malyChlew.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malyChlew.size+" "+malyChlew.type+" za "+malyChlew.price+"zł. Łączna ilość tego budynku wynosi "+malyChlew.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        if (sredniChlew.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniChlew.price;
+                                                            sredniChlew.built=true;
+                                                            sredniChlew.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniChlew.size+" "+sredniChlew.type+" za "+sredniChlew.price+"zł. Łączna ilość tego budynku wynosi "+sredniChlew.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzyChlew.price>Cash){
+                                                        System.out.println("Nie stać Cię");
+                                                    }else {
+                                                        Cash = Cash-duzyChlew.price;
+                                                        duzyChlew.built=true;
+                                                        duzyChlew.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzyChlew.size+" "+duzyChlew.type+" za "+duzyChlew.price+"zł. Łączna ilość tego budynku wynosi "+duzyChlew.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
 
+
+                                                }
+                                            }
+                                            break;
+
+                                        case 3:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mała obora\n2. Średnia obora\n3. Duża obora\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malaObora.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malaObora.price;
+                                                            malaObora.built=true;
+                                                            malaObora.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malaObora.size+" "+ malaObora.type+" za "+malaObora.price+"zł. Łączna ilość tego budynku wynosi "+malaObora.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        if (sredniaObora.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniaObora.price;
+                                                            sredniaObora.built=true;
+                                                            sredniaObora.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniaObora.size+" "+sredniaObora.type+" za "+sredniaObora.price+"zł. Łączna ilość tego budynku wynosi "+sredniaObora.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzaObora.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzaObora.price;
+                                                            duzaObora.built=true;
+                                                            duzaObora.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzaObora.size+" "+duzaObora.type+" za "+duzaObora.price+"zł. Łączna ilość tego budynku wynosi "+duzaObora.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mała koziarnia\n2. Średnia koziarnia\n3. Duża koziarnia \n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malaKoziarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malaKoziarnia.price;
+                                                            malaKoziarnia.built=true;
+                                                            malaKoziarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malaKoziarnia.size+" "+ malaKoziarnia.type+" za "+malaKoziarnia.price+"zł. Łączna ilość tego budynku wynosi "+malaKoziarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniaKoziarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniaKoziarnia.price;
+                                                            sredniaKoziarnia.built=true;
+                                                            sredniaKoziarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniaKoziarnia.size+" "+sredniaKoziarnia.type+" za "+sredniaKoziarnia.price+"zł. Łączna ilość tego budynku wynosi "+sredniaKoziarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzaKoziarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzaKoziarnia.price;
+                                                            duzaKoziarnia.built=true;
+                                                            duzaKoziarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzaKoziarnia.size+" "+duzaKoziarnia.type+" za "+duzaKoziarnia.price+"zł. Łączna ilość tego budynku wynosi "+duzaKoziarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 5:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mała owczarnia\n2. Średnia owczarnia\n3. Duża owczarnia\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malaOwczarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malaOwczarnia.price;
+                                                            malaOwczarnia.built=true;
+                                                            malaOwczarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malaOwczarnia.size+" "+ malaOwczarnia.type+" za "+malaOwczarnia.price+"zł. Łączna ilość tego budynku wynosi "+malaOwczarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniaOwczarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniaOwczarnia.price;
+                                                            sredniaOwczarnia.built=true;
+                                                            sredniaOwczarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniaOwczarnia.size+" "+sredniaOwczarnia.type+" za "+sredniaOwczarnia.price+"zł. Łączna ilość tego budynku wynosi "+sredniaOwczarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzaOwczarnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzaOwczarnia.price;
+                                                            duzaOwczarnia.built=true;
+                                                            duzaOwczarnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzaOwczarnia.size+" "+duzaOwczarnia.type+" za "+duzaOwczarnia.price+"zł. Łączna ilość tego budynku wynosi "+duzaOwczarnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 6:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mała stajnia\n2. Średnia stajnia\n3. Duża stajnia\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malaStajnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malaStajnia.price;
+                                                            malaStajnia.built=true;
+                                                            malaStajnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malaStajnia.size+" "+ malaStajnia.type+" za "+malaStajnia.price+"zł. Łączna ilość tego budynku wynosi "+malaStajnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniaStajnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniaStajnia.price;
+                                                            sredniaStajnia.built=true;
+                                                            sredniaStajnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniaStajnia.size+" "+sredniaStajnia.type+" za "+sredniaStajnia.price+"zł. Łączna ilość tego budynku wynosi "+sredniaStajnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzaStajnia.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzaStajnia.price;
+                                                            duzaStajnia.built=true;
+                                                            duzaStajnia.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzaStajnia.size+" "+duzaStajnia.type+" za "+duzaStajnia.price+"zł. Łączna ilość tego budynku wynosi "+duzaStajnia.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 7:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mały kurnik\n2. Średni kurnik\n3. Duży kurnik\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malyKurnik.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malyKurnik.price;
+                                                            malyKurnik.built=true;
+                                                            malyKurnik.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malyKurnik.size+" "+ malyKurnik.type+" za "+malyKurnik.price+"zł. Łączna ilość tego budynku wynosi "+malyKurnik.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniKurnik.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniKurnik.price;
+                                                            sredniKurnik.built=true;
+                                                            sredniKurnik.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniKurnik.size+" "+sredniKurnik.type+" za "+sredniKurnik.price+"zł. Łączna ilość tego budynku wynosi "+sredniKurnik.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzyKurnik.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzyKurnik.price;
+                                                            duzyKurnik.built=true;
+                                                            duzyKurnik.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzyKurnik.size+" "+duzyKurnik.type+" za "+duzyKurnik.price+"zł. Łączna ilość tego budynku wynosi "+duzyKurnik.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 8:
+
+                                            if (pasieka.price>Cash){
+                                                System.out.println("Nie stać Cię");
+                                            }else {
+                                                Cash = Cash-pasieka.price;
+                                                pasieka.built=true;
+                                                pasieka.buildCount++;
+                                                System.out.println("Właśnie kupiłeś "+ pasieka.type+" za "+pasieka.price+"zł. Łączna ilość tego budynku wynosi "+pasieka.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                            }
+                                            break;
+                                        case 9:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mały kojec\n2. Średni kojec\n3. Duży kojec\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malyKojec.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malyKojec.price;
+                                                            malyKojec.built=true;
+                                                            malyKojec.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malyKojec.size+" "+ malyKojec.type+" za "+malyKojec.price+"zł. Łączna ilość tego budynku wynosi "+malyKojec.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniKojec.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniKojec.price;
+                                                            sredniKojec.built=true;
+                                                            sredniKojec.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniKojec.size+" "+sredniKojec.type+" za "+sredniKojec.price+"zł. Łączna ilość tego budynku wynosi "+sredniKojec.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzyKojec.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzyKojec.price;
+                                                            duzyKojec.built=true;
+                                                            duzyKojec.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzyKojec.size+" "+duzyKojec.type+" za "+duzyKojec.price+"zł. Łączna ilość tego budynku wynosi "+duzyKojec.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 10:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mały silos\n2. Średni silos\n3. Duży silos\n4. Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malySilos.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malySilos.price;
+                                                            malySilos.built=true;
+                                                            malySilos.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malySilos.size+" "+ malySilos.type+" za "+malySilos.price+"zł. Łączna ilość tego budynku wynosi "+malySilos.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniSilos.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniSilos.price;
+                                                            sredniSilos.built=true;
+                                                            sredniSilos.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniSilos.size+" "+sredniSilos.type+" za "+sredniSilos.price+"zł. Łączna ilość tego budynku wynosi "+sredniSilos.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzySilos.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzySilos.price;
+                                                            duzySilos.built=true;
+                                                            duzySilos.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzySilos.size+" "+duzySilos.type+" za "+duzySilos.price+"zł. Łączna ilość tego budynku wynosi "+duzySilos.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                        case 11:
+                                            System.out.println("Jaki dokładnie budynek chciałbyś kupić?\n1. Mała stodoła\n2. Średnia stodoła\n3. Duża stodoła\n 4.Powrót");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            buildingTypeMenu = in.nextInt();
+                                            if (buildingTypeMenu > 3) {
+                                                System.out.println("Proszę wybrać poprawną opcje");
+                                            }else {
+                                                switch (buildingTypeMenu) {
+                                                    case 1:
+                                                        if (malaStodola.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-malaStodola.price;
+                                                            malaStodola.built=true;
+                                                            malaStodola.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+malaStodola.size+" "+ malaStodola.type+" za "+malaStodola.price+"zł. Łączna ilość tego budynku wynosi "+malaStodola.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 2:
+                                                        if (sredniaStodola.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-sredniaStodola.price;
+                                                            sredniaStodola.built=true;
+                                                            sredniaStodola.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+sredniaStodola.size+" "+sredniaStodola.type+" za "+sredniaStodola.price+"zł. Łączna ilość tego budynku wynosi "+sredniaStodola.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+                                                    case 3:
+                                                        if (duzaStodola.price>Cash){
+                                                            System.out.println("Nie stać Cię");
+                                                        }else {
+                                                            Cash = Cash-duzaStodola.price;
+                                                            duzaStodola.built=true;
+                                                            duzaStodola.buildCount++;
+                                                            System.out.println("Właśnie kupiłeś "+duzaStodola.size+" "+duzaStodola.type+" za "+duzaStodola.price+"zł. Łączna ilość tego budynku wynosi "+duzaStodola.buildCount+"\nPosiadasz w tym momencie "+Cash);
+                                                        }break;
+
+
+                                                }
+                                            }
+                                            break;
+                                    }
+                                }
                                 break;
                             case 3:
-
+                                System.out.println("Zakup/Sprzedaż zwierząt");
                                 break;
                             case 4:
+                                System.out.println("Zakup roślin");
                                 break;
                             case 5:
+                                System.out.println("Sianie roślin");
                                 break;
                             case 6:
+                                System.out.println("Zbiory");
                                 break;
                             case 7:
+                                System.out.println("Stan zapasów");
                                 break;
                             case 8:
+                                System.out.println("Stan zwierząt");
                                 break;
                             case 9:
+                                System.out.println("Stan roślin");
                                 break;
                         }
                     }
@@ -409,9 +844,6 @@ public class Game {
         System.out.println("#######################################################");
         System.out.println("\t\t\t\t\tGratulacje! \n\t  Udało Ci się zdobyć razem " + farmArea + "ha ziemi, masz \n\t   zasianych " + plantSpecies + " różnych roślin, a w Twoich \n\tbudynkach jest " + animalSpecies + " różnych rodzajów zwierząt! \n\t\t   Zajęło Ci to " + (year-2020) + " lat i " + week + " tygodni!");
         System.out.println("#######################################################");
-
-    }
-    static void gameMenu(){
 
     }
     static void katalog() {
