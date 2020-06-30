@@ -11,49 +11,49 @@ public class Game {
     static int animalSpecies = 0;
     static int plantSpecies = 0;
     static boolean running = true;
-
-    static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos");
-    static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos");
-    static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole");
-    static Plants bobik = new Plants("Bobik",550.0,400.0,42.7,3.5,10,22,350.0,900.0,"silos");
-    static Plants jablka = new Plants("Jabłka",0.0,0.0,0.0,0.0,0,0,0.0,0.0,"stodoła");
-    static Plants wisnie = new Plants("Wiśnie",0.0,0.0,0.0,0.0,0,0,0.0,0.0,"stodoła");
-    static Animals swinie = new Animals("Świnie",0.0);
-    static Animals krowy = new Animals("Krowy",0.0);
-    static Animals kozy = new Animals("Kozy",0.0);
-    static Animals owce = new Animals("Owce",0.0);
-    static Animals konie = new Animals("Konie",0.0);
-    static Animals kury = new Animals("Kury",0.0);
-    static Animals pszczoly = new Animals("Pszczoły",0.0);
-    static Animals psy = new Animals("Psy",0.0);
-    static Buildings malyChlew = new Buildings("chlew",5960,"Mały", new String[]{"świnie"},15);
-    static Buildings sredniChlew = new Buildings("chlew",10560,"Średni", new String[]{"świnie"},30);
-    static Buildings duzyChlew = new Buildings("chlew",23800,"Duży",new String []{"świnie"},90);
-    static Buildings malaObora = new Buildings("obora",17360,"Mała",new String []{"krowy"},10);
-    static Buildings sredniaObora = new Buildings("obora",32850,"Średnia",new String []{"krowy"},20);
-    static Buildings duzaObora = new Buildings("obora",87930,"Duża",new String []{"krowy"},60);
-    static Buildings malaKoziarnia = new Buildings("koziarnia",43830,"Mała",new String []{"kozy"},20);
-    static Buildings sredniaKoziarnia = new Buildings("koziarnia",64630,"Średnia",new String []{"kozy"},40);
-    static Buildings duzaKoziarnia = new Buildings("koziarnia",183680,"Duża",new String []{"kozy"},120);
-    static Buildings malaOwczarnia = new Buildings("owczarnia",38930,"Mała",new String []{"owce"},20);
-    static Buildings sredniaOwczarnia = new Buildings("owczarnia",63670,"Średnia",new String []{"owce"},40);
-    static Buildings duzaOwczarnia = new Buildings("owczarnia",183680,"Duża",new String []{"owce"},120);
-    static Buildings malaStajnia = new Buildings("stajnia",37380,"Mała",new String []{"konie"},2);
-    static Buildings sredniaStajnia = new Buildings("stajnia",67370,"Średnia",new String []{"konie"},4);
-    static Buildings duzaStajnia = new Buildings("stajnia",172360,"Duża",new String []{"konie"},12);
-    static Buildings malyKurnik = new Buildings("kurnik",2360,"Mały",new String []{"kury"},20);
-    static Buildings sredniKurnik = new Buildings("kurnik",4890,"Średni",new String []{"kury"},40);
-    static Buildings duzyKurnik = new Buildings("kurnik",15730,"Duży",new String []{"kury"},120);
-    static Buildings pasieka = new Buildings ("pasieka",200,"",new String[]{"psczoły"},1);
-    static Buildings malyKojec = new Buildings("kojec",4740,"Mały",new String[]{"psy"},10);
-    static Buildings sredniKojec = new Buildings("kojec",9820,"Średni",new String[]{"psy"},20);
-    static Buildings duzyKojec = new Buildings("kojec",26730,"Duży",new String[]{"psy"},60);
-    static Buildings malySilos = new Buildings("silos",3850,"Mały", new String[]{"rzepak","pszenica","bobik"},15);
-    static Buildings sredniSilos = new Buildings("silos",7270,"Średni", new String[]{"rzepak", "pszenica","bobik"},30);
-    static Buildings duzySilos = new Buildings("silos",17320,"Duży", new String[]{"rzepak","pszenica","bobik"},90);
-    static Buildings malaStodola = new Buildings("stodoła",6340,"Mała", new String[]{"jabłka","wiśnie"},25);
-    static Buildings sredniaStodola = new Buildings("stodoła",9820,"Średnia", new String[]{"jabłka","wiśnie"},50);
-    static Buildings duzaStodola = new Buildings("stodoła",25730,"Duża",new String[]{"jabłka","wiśnie"},150);
+    String[] petNames = {"Elsa", "Timon", "Pumba", "Odie", "Nela", "Reksio", "Krecik", "Snoopy", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Dzwonnik", "Pat", "Kibic", "Peppa", "Tarzan", "Simba", "Tramp", "Shang", "Gaston", "Megara", "Milo", "Bambi", "Bernard", "Lilo", "Stich", "Chudy", "Bernard", "Lilo", "Stich", "Chudy", "Buzz", "Andy", "Rex", "Nemo", "Dory", "Olaf", "Zazu", "Klakier", "Toudie", "Pracuś", "Diego", "Sid", "Toudie", "Pracuś", "Diego", "Sid", "Bolek", "Lolek", "Yogi", "Doris", "Pluto", "Gucio", "Shrek", "Mat", "Ciastek", "Kojot", "Kermit", "Pigi", "Ciastek", "Kojot", "Kermit", "Pigi", "Fred", "Wilma", "Barney", "Eddie", "Loudie", "Plastuś", "Alex", "Tweety", "Roger", "Ważniak", "Pirat", "Arielka", "Roger", "Ważniak", "Pirat", "Arielka", "Śnieżka", "Migotka", "Kopciuszek", "Bella", "Smerf", "Jerry", "Tom", "Herkules", "Bowie", "Salma", "JuliaRoberts", "Pink", "Bowie", "Salma", "JuliaRoberts", "Pink", "Biber", "JohnWayne", "WoodyAllen", "Justin", "Leonardo", "Clooney", "LadyGaga", "Mendes", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Doda", "IceCube", "Fatboy", "Douglas", "Twiggy", "Akon", "Kora", "JohnnyDeep", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "Hilton", "Ariana", "NicoleKidman", "Newton", "Einstein", "Orange", "Rainbow", "Weekend", "Stone", "Latte", "Coffee", "Sky", "Stone", "Latte", "Coffee", "Sky", "Tuesday", "Note", "Cloud", "Apple", "Hotdog", "Burger", "Shadow", "Monday", "Shy", "Forest", "Pillow", "Doll", "Shy", "Forest", "Pillow", "Doll", "Ball", "Dress", "Lucky", "Shine", "Tomato", "Winter", "Summer", "Spring", "Flower", "Clover", "Mind", "Violet", "Flower", "Clover", "Mind", "Violet", "Blue", "Green", "Yellow", "Honey", "Sun", "Jelly", "Fair", "Fire", "Amour", "Mall", "Czikita", "Tornado", "Amour", "Mall", "Czikita", "Tornado", "Sztanga", "Rewolwer", "Bandzior", "Flądra", "Burza", "Tajfun", "Szeryf", "Fosa", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Boczek", "Sushi", "Mecenas", "Prawnik", "Tuńczyk", "Budyń", "Parasol", "Spacja", "Fotka", "Akapit", "Mamrot", "Demon", "Fotka", "Akapit", "Mamrot", "Demon", "Bajzel", "Pasztet", "Zamek", "Szkoła", "Taniec", "Tango", "Bukiet", "Bigos", "Ważniak", "Laluś", "Torpeda", "Pędziwiatr", "Ważniak", "Laluś", "Torpeda", "Pędziwiatr", "Ostoja", "Miseczka", "Sarenka", "Patyk", "Sfinx", "Pazurek", "Ogonek", "Ciapek", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Wesołek", "Śliniak", "Brutal", "Skoczek", "Szef", "Kierownik", "Łapacz", "Aport", "Konik", "Kleks", "Konik", "Kleks"};
+    static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos", false, 0);
+    static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos", false, 0);
+    static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole", false, 0);
+    static Plants bobik = new Plants("Bobik",550.0,400.0,42.7,3.5,10,22,350.0,900.0,"silos", false, 0);
+    static Plants jablka = new Plants("Jabłka",800.0,720.0,40.3,25,16,326,850.0,1020.0,"stodoła", false, 0);
+    static Plants wisnie = new Plants("Wiśnie",600.0,670.0,23.5,20.0,12,332,700.0,700.0,"stodoła", false, 0);
+    static Animals swinie = new Animals("Świnia","",700.0, "chlew", new String [] {"wieprzowina"}, new String []{"pasza","pszenica","trawa"},23 ,25.0,13.4, 27,3.5,5,false, 16,10,false);
+    static Animals krowy = new Animals("Krowa","",1500.0, "obora", new String[] {"wołowina", "krowie mleko"}, new String []{"pasza","pszenica","trawa"},27,70.0,6.7,103,110.0,5,false,40,1,false);
+    static Animals kozy = new Animals("Koza","",500.0,"koziarnia",new String[]{"kozina","kozie mleko"}, new String[]{"trawa","owoce","śruta"},34,3.5,5.6,25,15.1,5,false,22,2,false);
+    static Animals owce = new Animals("Owca","",450.0,"owczarnia",new String[]{"baranina","owcze mleko","wełna"},new String[]{"nasiona","tarwa","ziemniaki","marchew"},37,3.5,5.4, 27, 15.2, 5, false,21,2,false);
+    static Animals konie = new Animals("Koń","",6200.0,"stajnia",new String[]{"jazda konna"}, new String[]{"siano","warzywa","owoce"},67,60.0,11.3,73,55.0,5,false,47,1,false);
+    static Animals kury = new Animals("Kura","",30.0,"kurnik",new String[]{"jajka","mięso drobiowe"},new String[]{"pszenica"},20,0.85,0.4,8,10.0,5,false,3,8,false);
+    static Animals pszczoly = new Animals("Pszczoła","",400.0,"pasieka",new String[]{"miód"},new String[]{""},0,0.0,0.0,0,0.0,0,false,0,0,false);
+    static Animals psy = new Animals("Pies","",2000.0,"kojec",new String[]{"szczeniaki"},new String[]{"karma"},52,4.0,0.5,52,3.0,5,false,9,8,false);
+    static Buildings malyChlew = new Buildings("chlew",5960,"Mały", new String[]{"świnie"},15,false,0);
+    static Buildings sredniChlew = new Buildings("chlew",10560,"Średni", new String[]{"świnie"},30,false,0);
+    static Buildings duzyChlew = new Buildings("chlew",23800,"Duży",new String []{"świnie"},90,false,0);
+    static Buildings malaObora = new Buildings("obora",17360,"Mała",new String []{"krowy"},10,false,0);
+    static Buildings sredniaObora = new Buildings("obora",32850,"Średnia",new String []{"krowy"},20,false,0);
+    static Buildings duzaObora = new Buildings("obora",87930,"Duża",new String []{"krowy"},60,false,0);
+    static Buildings malaKoziarnia = new Buildings("koziarnia",43830,"Mała",new String []{"kozy"},20,false,0);
+    static Buildings sredniaKoziarnia = new Buildings("koziarnia",64630,"Średnia",new String []{"kozy"},40,false,0);
+    static Buildings duzaKoziarnia = new Buildings("koziarnia",183680,"Duża",new String []{"kozy"},120,false,0);
+    static Buildings malaOwczarnia = new Buildings("owczarnia",38930,"Mała",new String []{"owce"},20,false,0);
+    static Buildings sredniaOwczarnia = new Buildings("owczarnia",63670,"Średnia",new String []{"owce"},40,false,0);
+    static Buildings duzaOwczarnia = new Buildings("owczarnia",183680,"Duża",new String []{"owce"},120,false,0);
+    static Buildings malaStajnia = new Buildings("stajnia",37380,"Mała",new String []{"konie"},2,false,0);
+    static Buildings sredniaStajnia = new Buildings("stajnia",67370,"Średnia",new String []{"konie"},4,false,0);
+    static Buildings duzaStajnia = new Buildings("stajnia",172360,"Duża",new String []{"konie"},12,false,0);
+    static Buildings malyKurnik = new Buildings("kurnik",2360,"Mały",new String []{"kury"},20,false,0);
+    static Buildings sredniKurnik = new Buildings("kurnik",4890,"Średni",new String []{"kury"},40,false,0);
+    static Buildings duzyKurnik = new Buildings("kurnik",15730,"Duży",new String []{"kury"},120,false,0);
+    static Buildings pasieka = new Buildings ("pasieka",200,"",new String[]{"psczoły"},1,false,0);
+    static Buildings malyKojec = new Buildings("kojec",4740,"Mały",new String[]{"psy"},10,false,0);
+    static Buildings sredniKojec = new Buildings("kojec",9820,"Średni",new String[]{"psy"},20,false,0);
+    static Buildings duzyKojec = new Buildings("kojec",26730,"Duży",new String[]{"psy"},60,false,0);
+    static Buildings malySilos = new Buildings("silos",3850,"Mały", new String[]{"rzepak","pszenica","bobik"},15,false,0);
+    static Buildings sredniSilos = new Buildings("silos",7270,"Średni", new String[]{"rzepak", "pszenica","bobik"},30,false,0);
+    static Buildings duzySilos = new Buildings("silos",17320,"Duży", new String[]{"rzepak","pszenica","bobik"},90,false,0);
+    static Buildings malaStodola = new Buildings("stodoła",6340,"Mała", new String[]{"jabłka","wiśnie"},25,false,0);
+    static Buildings sredniaStodola = new Buildings("stodoła",9820,"Średnia", new String[]{"jabłka","wiśnie"},50,false,0);
+    static Buildings duzaStodola = new Buildings("stodoła",25730,"Duża",new String[]{"jabłka","wiśnie"},150, false, 0);
 
     static void menu() {
 
@@ -219,6 +219,24 @@ public class Game {
                     System.out.println("#######################################################");
                     System.out.println("Właśnie kupiłeś farmę numer 1! Wydałeś " + startingFarmPrice1 + "zł na ten cel i zostało Ci " + Cash + "zł na pozostałe wydatki!\n");
                     choseMenu = false;
+                    switch (startingBuilding1) {
+                        case "mały chlew":
+                            malyChlew.built = true;
+                            malyChlew.buildCount++;
+                            break;
+                        case "mały kurnik":
+                            malyKurnik.built = true;
+                            malyKurnik.buildCount++;
+                            break;
+                        case "mały silos":
+                            malySilos.built = true;
+                            malySilos.buildCount++;
+                            break;
+                        case "mała stodoła":
+                            malaStodola.built = true;
+                            malaStodola.buildCount++;
+                            break;
+                    }
                     break;
                 case "2":
                     farmArea = startingFarmArea2;
@@ -226,6 +244,24 @@ public class Game {
                     System.out.println("#######################################################");
                     System.out.println("Właśnie kupiłeś farmę numer 2! Wydałeś " + startingFarmPrice2 + "zł na ten cel i zostało Ci " + Cash + "zł na pozostałe wydatki!\n");
                     choseMenu = false;
+                    switch (startingBuilding2) {
+                        case "mały chlew":
+                            malyChlew.built = true;
+                            malyChlew.buildCount++;
+                            break;
+                        case "mały kurnik":
+                            malyKurnik.built = true;
+                            malyKurnik.buildCount++;
+                            break;
+                        case "mały silos":
+                            malySilos.built = true;
+                            malySilos.buildCount++;
+                            break;
+                        case "mała stodoła":
+                            malaStodola.built = true;
+                            malaStodola.buildCount++;
+                            break;
+                    }
                     break;
                 case "3":
                     farmArea = startingFarmArea3;
@@ -233,6 +269,24 @@ public class Game {
                     System.out.println("#######################################################");
                     System.out.println("Właśnie kupiłeś farmę numer 3! Wydałeś " + startingFarmPrice3 + "zł na ten cel i zostało Ci " + Cash + "zł na pozostałe wydatki!\n");
                     choseMenu = false;
+                    switch (startingBuilding3) {
+                        case "mały chlew":
+                            malyChlew.built = true;
+                            malyChlew.buildCount++;
+                            break;
+                        case "mały kurnik":
+                            malyKurnik.built = true;
+                            malyKurnik.buildCount++;
+                            break;
+                        case "mały silos":
+                            malySilos.built = true;
+                            malySilos.buildCount++;
+                            break;
+                        case "mała stodoła":
+                            malaStodola.built = true;
+                            malaStodola.buildCount++;
+                            break;
+                    }
                     break;
                 default:
                     System.out.println("Wybierz jedną z farm");
@@ -245,6 +299,104 @@ public class Game {
                 System.out.println("Data: " + week + " tydzień, " + year);
                 System.out.println("Pieniądze: " + Cash + "zł \nPowierzchnia: " + farmArea + "ha");
                 check();
+                // GAME MENU
+                int gameMenuChoice;
+                System.out.println("Co chciałbyś zrobić?");
+                do {
+                    System.out.println("#######################################################");
+                    System.out.println("1. Zakup/Sprzedaż ziemi\n2. Zakup budynków\n3. Zakup/Sprzedaż zwierząt\n4. Zakup roślin\n5. Sianie roślin\n6. Zbiory\n7. Stan zapasów\n8. Stan zwierząt\n9. Stan roślin\n0. Pomiń tydzień");
+                    while(!in.hasNextInt())
+                    {
+                        in.nextLine();
+                        System.out.println("Proszę wprowadzić cyfrę");
+                    }
+                    gameMenuChoice = in.nextInt();
+                    if (gameMenuChoice > 9 || gameMenuChoice < 1){
+                        System.out.println("Proszę wybrać poprawną opcje");
+                    }else {
+                        switch (gameMenuChoice) {
+                            case 1:
+                                int fieldSaleMenu;
+                                int fieldSaleCounter;
+                                int fieldBuyCounter;
+                                Double salePrice = 40000 * (90.0 + rand.nextInt(20)) / 100.0;
+                                Double buyPrice = 44000 * (90.0 + rand.nextInt(20)) / 100.0;
+                                if (buyPrice < salePrice){
+                                    buyPrice = salePrice + (2000 * (100.0 + rand.nextInt(10)) / 100.0);
+                                }
+                                System.out.println("#######################################################");
+                                System.out.println("Witamy w naszym sklepie, gdzie możesz kupić i sprzedać ziemie! \n1 ha ziemi możesz kupić za:"+ buyPrice + "zł, a sprzedać za "+salePrice+"zł");
+                                System.out.println("1. Kup ziemie\n2. Sprzedaj ziemie\n3. Powrót");
+                                while(!in.hasNextInt())
+                                {
+                                    in.nextLine();
+                                    System.out.println("Proszę wprowadzić cyfrę");
+                                }
+                                fieldSaleMenu = in.nextInt();
+                                if (fieldSaleMenu > 3){
+                                    System.out.println("Proszę wybrać poprawną opcje");
+                                }else {
+                                    switch (fieldSaleMenu){
+                                        case 1:
+                                        System.out.println("Ile hektarów chcesz kupić?");
+                                        while(!in.hasNextInt())
+                                        {
+                                            in.nextLine();
+                                            System.out.println("Proszę wprowadzić cyfrę");
+                                        }
+                                        fieldBuyCounter = in.nextInt();
+                                        if (fieldBuyCounter*buyPrice > Cash)
+                                            System.out.println("Nie stać Cię");
+                                        else {
+                                            Cash = Cash - (fieldBuyCounter * buyPrice);
+                                            farmArea = farmArea + fieldBuyCounter;
+                                            System.out.println("Właśnie kupiłeś " + fieldBuyCounter + "ha ziemi za " + (fieldBuyCounter * buyPrice) + "zł. Masz teraz " + farmArea + "ha i " + Cash + "zł.");
+                                        gameMenuChoice = 0;
+                                        }
+                                        break;
+                                        case 2:
+                                            System.out.println("Ile hektarów chcesz sprzedać?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            fieldSaleCounter = in.nextInt();
+                                            if (farmArea < fieldSaleCounter)
+                                                System.out.println("Nie masz tyle ziemi");
+                                            else {
+                                                Cash = Cash + (fieldSaleCounter * salePrice);
+                                                farmArea = farmArea - fieldSaleCounter;
+                                                System.out.println("Właśnie sprzedałeś " + fieldSaleCounter + "ha ziemi za " + (fieldSaleCounter * salePrice) + "zł. Masz teraz " + farmArea + "ha i " + Cash + "zł.");
+                                            gameMenuChoice = 0;
+                                            }
+                                            break;
+                                    }
+                                }
+
+                                break;
+                            case 2:
+
+                                break;
+                            case 3:
+
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                break;
+                            case 7:
+                                break;
+                            case 8:
+                                break;
+                            case 9:
+                                break;
+                        }
+                    }
+                }
+                while (gameMenuChoice != 0);
                 if(week<53){
                     week++;
                 }else {
@@ -257,6 +409,9 @@ public class Game {
         System.out.println("#######################################################");
         System.out.println("\t\t\t\t\tGratulacje! \n\t  Udało Ci się zdobyć razem " + farmArea + "ha ziemi, masz \n\t   zasianych " + plantSpecies + " różnych roślin, a w Twoich \n\tbudynkach jest " + animalSpecies + " różnych rodzajów zwierząt! \n\t\t   Zajęło Ci to " + (year-2020) + " lat i " + week + " tygodni!");
         System.out.println("#######################################################");
+
+    }
+    static void gameMenu(){
 
     }
     static void katalog() {
@@ -483,17 +638,8 @@ public class Game {
         while (plantOptionMenu != 7);
     }
     static void check(){
-        if (farmArea <20){
-            running = true;
-            farmArea++;
-        }
-        else if (plantSpecies <5) {
-            running = true;
-            plantSpecies++;
-        }
-        else if (animalSpecies <5) {
-            running = true;
-            animalSpecies++;
-        }else running = false;
+        if (farmArea >= 20 & plantSpecies >= 5 & animalSpecies >= 5){
+            running = false;
+        }else running = true;
     }
 }

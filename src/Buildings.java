@@ -9,12 +9,14 @@ public class Buildings {
     Boolean built; // czy zbudowany
     Integer buildCount; // ilość budynków
 
-    public Buildings(String type, Integer price, String size, String [] product, Integer capacity) {
+    public Buildings(String type, Integer price, String size, String [] product, Integer capacity, Boolean built, Integer buildCount) {
         this.type = type;
         this.price = price;
         this.size = size;
         this.product = product;
         this.capacity = capacity;
+        this.built = built;
+        this.buildCount = buildCount;
     }
 
 

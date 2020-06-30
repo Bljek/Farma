@@ -12,7 +12,7 @@ public class Plants {
     Integer whenToHarvest; // kiedy zbierać
     String warehouse;
 
-    public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse) {
+    public Plants(String name, double seedPrice, double tillageCost, double protectionCost, double yield, int sowingTime, int timeNeeded, double harvestCost, double sellingPrice, String warehouse, Boolean readyToHarvest, Integer whenToHarvest) {
         this.name = name;
         this.seedPrice = seedPrice;
         this.tillageCost = tillageCost;
@@ -23,6 +23,9 @@ public class Plants {
         this.harvestCost = harvestCost;
         this.sellingPrice = sellingPrice;
         this.warehouse = warehouse;
+        this.readyToHarvest = readyToHarvest;
+        this.whenToHarvest = whenToHarvest;
+
     }
     public String toString(){
         return "Nazwa: " + name + "\nCena nasion: " +seedPrice+"zł\nKoszt zasiania: " + tillageCost + "zł\nKoszt uprawy: " + protectionCost + "zł/tydzień\nWydajność plonów: " + yield + "t\nW którym tygodniu siać: " + sowingTime + "\nDługośc wzrostu: " + timeNeeded +" tygodni\nKoszt zebrania: "+harvestCost+"zł\nCena skupu: "+sellingPrice+"zł/t\nMiejsce składowania: "+warehouse;
