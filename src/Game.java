@@ -309,7 +309,7 @@ public class Game {
                 System.out.println("Co chciałbyś zrobić?");
                 do {
                     System.out.println("#######################################################");
-                    System.out.println("1. Zakup/Sprzedaż ziemi\n2. Zakup budynków\n3. Zakup/Sprzedaż zwierząt\n4. Zakup roślin\n5. Sianie roślin\n6. Zbiory\n7. Stan zapasów\n8. Stan zwierząt\n9. Stan roślin\n0. Pomiń tydzień");
+                    System.out.println("1. Zakup/Sprzedaż ziemi\n2. Zakup budynków\n3. Zakup/Sprzedaż zwierząt\n4. Zakup nasion\n5. Sianie roślin\n6. Zbiory\n7. Stan zapasów\n8. Stan zwierząt\n9. Stan roślin\n0. Pomiń tydzień");
                     while(!in.hasNextInt())
                     {
                         in.nextLine();
@@ -811,20 +811,162 @@ public class Game {
                                 System.out.println("Zakup/Sprzedaż zwierząt");
                                 break;
                             case 4:
-                                System.out.println("Zakup roślin");
+                                int seedsSaleMenu;
+                                int seedsCountMenu;
+                                System.out.println("#######################################################");
+                                System.out.println("Witamy w Hurtowni Nasion Jasia Fasoli!\nJakie nasiona chciałbyś kupić?");
+                                System.out.println("1. Przejrzyj katalog nasion\n2. Rzepak\n3. Pszenica\n4. Buraki\n5. Bobik\n6. Jabłka\n7. Wiśnie\n8. Powrót");
+                                while(!in.hasNextInt())
+                                {
+                                    in.nextLine();
+                                    System.out.println("Proszę wprowadzić cyfrę");
+                                }
+                                seedsSaleMenu = in.nextInt();
+                                if (seedsSaleMenu > 8){
+                                    System.out.println("Proszę wybrać poprawną opcje");
+                                }else {
+                                    switch (seedsSaleMenu){
+                                        case 1:
+                                            katalogRoslin();
+                                            break;
+                                        case 2:
+                                            System.out.println("Ile nasion rzepaku chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*rzepak.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*rzepak.seedPrice;
+                                                rzepak.ownedSeeds = rzepak.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion rzepaku za " + (seedsCountMenu * rzepak.seedPrice) + "zł. Masz teraz " + rzepak.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                        case 3:
+                                            System.out.println("Ile nasion pszenicy chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*pszenica.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*pszenica.seedPrice;
+                                                pszenica.ownedSeeds = pszenica.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion pszenicy za " + (seedsCountMenu * pszenica.seedPrice) + "zł. Masz teraz " + pszenica.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.println("Ile nasion buraków chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*buraki.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*rzepak.seedPrice;
+                                                buraki.ownedSeeds = buraki.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion buraków za " + (seedsCountMenu * buraki.seedPrice) + "zł. Masz teraz " + buraki.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                        case 5:
+                                            System.out.println("Ile nasion bobiku chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*bobik.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*bobik.seedPrice;
+                                                bobik.ownedSeeds = bobik.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion bobiku za " + (seedsCountMenu * bobik.seedPrice) + "zł. Masz teraz " + bobik.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                        case 6:
+                                            System.out.println("Ile nasion jabłek chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*jablka.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*jablka.seedPrice;
+                                                jablka.ownedSeeds = jablka.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion rzepaku za " + (seedsCountMenu * jablka.seedPrice) + "zł. Masz teraz " + jablka.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                        case 7:
+                                            System.out.println("Ile nasion wiśni chciałbyś kupić?");
+                                            while(!in.hasNextInt())
+                                            {
+                                                in.nextLine();
+                                                System.out.println("Proszę wprowadzić cyfrę");
+                                            }
+                                            seedsCountMenu = in.nextInt();
+                                            if (seedsCountMenu*wisnie.seedPrice>Cash) {
+                                                System.out.println("Nie stać Cię!");
+                                            }else {
+                                                Cash = Cash-seedsCountMenu*wisnie.seedPrice;
+                                                wisnie.ownedSeeds = wisnie.ownedSeeds + seedsCountMenu;
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion wiśni za " + (seedsCountMenu * wisnie.seedPrice) + "zł. Masz teraz " + wisnie.ownedSeeds + "nasion i " + Cash + "zł.");
+                                            }
+                                            break;
+                                    }
+                                }
                                 break;
                             case 5:
                                 System.out.println("Sianie roślin");
                                 break;
                             case 6:
                                 if(rzepak.readyToHarvest || pszenica.readyToHarvest || buraki.readyToHarvest ||bobik.readyToHarvest ||jablka.readyToHarvest || wisnie.readyToHarvest){
+                                    int i = 0;
+
                                     System.out.println("Możesz zebrać:");
-                                    if (rzepak.readyToHarvest){System.out.println("rzepak");}
-                                    if (pszenica.readyToHarvest){System.out.println("pszenicę");}
-                                    if (buraki.readyToHarvest){System.out.println("buraki");}
-                                    if (bobik.readyToHarvest){System.out.println("bobik");}
-                                    if (jablka.readyToHarvest){System.out.println("jabłka");}
-                                    if (wisnie.readyToHarvest){System.out.println("wiśnie");}
+                                    if (rzepak.readyToHarvest){
+                                        i++;
+                                        System.out.println(i+". Rzepak");}
+                                    if (pszenica.readyToHarvest){
+                                        i++;
+                                        System.out.println(i+". Pszenicę");}
+                                    if (buraki.readyToHarvest){
+                                        i++;
+                                        System.out.println(i+". Buraki");}
+                                    if (bobik.readyToHarvest){
+                                        i++;
+                                        System.out.println(i+". Bobik");}
+                                    if (jablka.readyToHarvest){
+                                        i++;
+                                    System.out.println(i+". Jabłka");}
+                                    if (wisnie.readyToHarvest){
+                                        i++;
+                                        System.out.println(i+". Wiśnie");}
+                                    System.out.println("Którą opcję chcesz wybrać?");
+                                    while(!in.hasNextInt())
+                                    {
+                                        in.nextLine();
+                                        System.out.println("Proszę wprowadzić cyfrę");
+                                    }
+                                    int harvestMenu = in.nextInt();
+                                    if (harvestMenu > i){
+                                        System.out.println("Proszę wybrać poprawną opcje");
+                                    } else {
+                                        System.out.println("System zbiorów");
+
+                                    }
                                 }
                                 else {
                                     System.out.println("Chcesz żąć tam, gdzie nie posiałeś, i zbierać tam, gdzieś nie rozsypał");
@@ -992,7 +1134,7 @@ public class Game {
         System.out.println("\n\t\t\t Witamy w katalogu zwierząt\n Tutaj znajdziesz informacje o wszystkich zwierzętach,\n\tktóre możesz chodować na swoim gospodarstwie!\n\n\t\tO którym zwierzęciu chcesz poczytać teraz?\n");
         do {
             System.out.println("#######################################################");
-            System.out.println("1. Świnie\n2. Krowy\n3. Kozy\n4. Owce\n5. Konie\n6. Kury\n7. Pszczoły\n8. Psy\n9. Powrót do katalogu głównego");
+            System.out.println("1. Świnie\n2. Krowy\n3. Kozy\n4. Owce\n5. Konie\n6. Kury\n7. Pszczoły\n8. Psy\n9. Powrót");
             while (!in.hasNextInt()) {
                 in.nextLine();
                 System.out.println("Proszę wprowadzić cyfrę");
@@ -1043,7 +1185,7 @@ public class Game {
         System.out.println("\n\t\t\t Witamy w katalogu roślin\n Tutaj znajdziesz informacje o wszystkich roślinach,\n\tktóre możesz chodować na swoim gospodarstwie!\n\n\t\tO której roślinie chcesz poczytać teraz?\n");
         do {
             System.out.println("#######################################################");
-            System.out.println("1. Rzepak\n2. Pszenica\n3. Buraki\n4. Bobik\n5. Jabłka\n6. Wiśnie\n7. Powrót do katalogu głównego");
+            System.out.println("1. Rzepak\n2. Pszenica\n3. Buraki\n4. Bobik\n5. Jabłka\n6. Wiśnie\n7. Powrót");
             while (!in.hasNextInt()) {
                 in.nextLine();
                 System.out.println("Proszę wprowadzić cyfrę");
