@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,7 +13,8 @@ public class Game {
     static int animalSpecies = 0;
     static int plantSpecies = 0;
     static boolean running = true;
-    String[] petNames = {"Elsa", "Timon", "Pumba", "Odie", "Nela", "Reksio", "Krecik", "Snoopy", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Tarzan", "Simba", "Tramp", "Shang", "Gaston", "Megara", "Milo", "Bambi", "Bernard", "Lilo", "Stich", "Chudy", "Buzz", "Andy", "Rex", "Nemo", "Dory", "Olaf", "Zazu", "Klakier", "Toudie", "Pracuś", "Diego", "Sid", "Bolek", "Lolek", "Yogi", "Doris", "Pluto", "Gucio", "Shrek", "Mat", "Ciastek", "Kojot", "Kermit", "Pigi", "Fred", "Wilma", "Barney", "Eddie", "Loudie", "Plastuś", "Alex", "Tweety", "Roger", "Ważniak", "Pirat", "Arielka", "Śnieżka", "Migotka", "Kopciuszek", "Bella", "Smerf", "Jerry", "Tom", "Herkules", "Bowie", "Salma", "JuliaRoberts", "Pink", "Biber", "JohnWayne", "WoodyAllen", "Justin", "Leonardo", "Clooney", "LadyGaga", "Mendes", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Doda", "IceCube", "Fatboy", "Douglas", "Twiggy", "Akon", "Kora", "JohnnyDeep", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "Hilton", "Ariana", "NicoleKidman", "Newton", "Einstein", "Orange", "Rainbow", "Weekend", "Stone", "Latte", "Coffee", "Sky", "Tuesday", "Note", "Cloud", "Apple", "Hotdog", "Burger", "Shadow", "Monday", "Shy", "Forest", "Pillow", "Doll", "Ball", "Dress", "Lucky", "Shine", "Tomato", "Winter", "Summer", "Spring", "Flower", "Clover", "Mind", "Violet", "Blue", "Green", "Yellow", "Honey", "Sun", "Jelly", "Fair", "Fire", "Amour", "Mall", "Czikita", "Tornado", "Sztanga", "Rewolwer", "Bandzior", "Flądra", "Burza", "Tajfun", "Szeryf", "Fosa", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Boczek", "Sushi", "Mecenas", "Prawnik", "Tuńczyk", "Budyń", "Parasol", "Spacja", "Fotka", "Akapit", "Mamrot", "Demon", "Bajzel", "Pasztet", "Zamek", "Szkoła", "Taniec", "Tango", "Bukiet", "Bigos", "Laluś", "Torpeda", "Pędziwiatr", "Ostoja", "Miseczka", "Sarenka", "Patyk", "Sfinx", "Pazurek", "Ogonek", "Ciapek", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Wesołek", "Śliniak", "Brutal", "Skoczek", "Szef", "Kierownik", "Łapacz", "Aport", "Konik", "Kleks"};
+    // Ta tablica tutaj dodana, bo do kazdego nowego zwierzecia mialem dopisywac imie losowo wybrane stad, aby gracz mogl je jakos odrozniac
+    static String[] petNames = {"Elsa", "Timon", "Pumba", "Odie", "Nela", "Reksio", "Krecik", "Snoopy", "Lassie", "Balto", "Pankracy", "Piorun", "Dzwonnik", "Pat", "Kibic", "Peppa", "Tarzan", "Simba", "Tramp", "Shang", "Gaston", "Megara", "Milo", "Bambi", "Bernard", "Lilo", "Stich", "Chudy", "Buzz", "Andy", "Rex", "Nemo", "Dory", "Olaf", "Zazu", "Klakier", "Toudie", "Pracuś", "Diego", "Sid", "Bolek", "Lolek", "Yogi", "Doris", "Pluto", "Gucio", "Shrek", "Mat", "Ciastek", "Kojot", "Kermit", "Pigi", "Fred", "Wilma", "Barney", "Eddie", "Loudie", "Plastuś", "Alex", "Tweety", "Roger", "Ważniak", "Pirat", "Arielka", "Śnieżka", "Migotka", "Kopciuszek", "Bella", "Smerf", "Jerry", "Tom", "Herkules", "Bowie", "Salma", "JuliaRoberts", "Pink", "Biber", "JohnWayne", "WoodyAllen", "Justin", "Leonardo", "Clooney", "LadyGaga", "Mendes", "Fergie", "Jay-Z", "SnoopDogg", "ChuckNorris", "Doda", "IceCube", "Fatboy", "Douglas", "Twiggy", "Akon", "Kora", "JohnnyDeep", "SandraBullock", "MarylStreep", "MorganFreeman", "TomHanks", "Hilton", "Ariana", "NicoleKidman", "Newton", "Einstein", "Orange", "Rainbow", "Weekend", "Stone", "Latte", "Coffee", "Sky", "Tuesday", "Note", "Cloud", "Apple", "Hotdog", "Burger", "Shadow", "Monday", "Shy", "Forest", "Pillow", "Doll", "Ball", "Dress", "Lucky", "Shine", "Tomato", "Winter", "Summer", "Spring", "Flower", "Clover", "Mind", "Violet", "Blue", "Green", "Yellow", "Honey", "Sun", "Jelly", "Fair", "Fire", "Amour", "Mall", "Czikita", "Tornado", "Sztanga", "Rewolwer", "Bandzior", "Flądra", "Burza", "Tajfun", "Szeryf", "Fosa", "Szaman", "Oliwka", "Sajgonka", "Bagietka", "Boczek", "Sushi", "Mecenas", "Prawnik", "Tuńczyk", "Budyń", "Parasol", "Spacja", "Fotka", "Akapit", "Mamrot", "Demon", "Bajzel", "Pasztet", "Zamek", "Szkoła", "Taniec", "Tango", "Bukiet", "Bigos", "Laluś", "Torpeda", "Pędziwiatr", "Ostoja", "Miseczka", "Sarenka", "Patyk", "Sfinx", "Pazurek", "Ogonek", "Ciapek", "Łapek", "Krawacik", "Prążek", "Biszkopt", "Wesołek", "Śliniak", "Brutal", "Skoczek", "Szef", "Kierownik", "Łapacz", "Aport", "Konik", "Kleks"};
     static Plants rzepak = new Plants("Rzepak",330.0,500.0,42.3,8.0,39,45,350.0,750.0, "silos", false, 0,0,0);
     static Plants pszenica = new Plants("Pszenica",440.0,500.0,41.8,4.2,33,49,350.0,1600.0, "silos", false, 0,0,0);
     static Plants buraki = new Plants("Buraki",550.0,470.,92.3,80,14,22,1000.0,125.0,"pole", false, 0,0,0);
@@ -842,7 +845,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*rzepak.seedPrice;
                                                 rzepak.ownedSeeds = rzepak.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion rzepaku za " + (seedsCountMenu * rzepak.seedPrice) + "zł. Masz teraz " + rzepak.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion rzepaku za " + (seedsCountMenu * rzepak.seedPrice) + "zł. Masz teraz " + rzepak.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                         case 3:
@@ -858,7 +861,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*pszenica.seedPrice;
                                                 pszenica.ownedSeeds = pszenica.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion pszenicy za " + (seedsCountMenu * pszenica.seedPrice) + "zł. Masz teraz " + pszenica.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion pszenicy za " + (seedsCountMenu * pszenica.seedPrice) + "zł. Masz teraz " + pszenica.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                         case 4:
@@ -874,7 +877,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*rzepak.seedPrice;
                                                 buraki.ownedSeeds = buraki.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion buraków za " + (seedsCountMenu * buraki.seedPrice) + "zł. Masz teraz " + buraki.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion buraków za " + (seedsCountMenu * buraki.seedPrice) + "zł. Masz teraz " + buraki.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                         case 5:
@@ -890,7 +893,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*bobik.seedPrice;
                                                 bobik.ownedSeeds = bobik.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion bobiku za " + (seedsCountMenu * bobik.seedPrice) + "zł. Masz teraz " + bobik.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion bobiku za " + (seedsCountMenu * bobik.seedPrice) + "zł. Masz teraz " + bobik.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                         case 6:
@@ -906,7 +909,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*jablka.seedPrice;
                                                 jablka.ownedSeeds = jablka.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion rzepaku za " + (seedsCountMenu * jablka.seedPrice) + "zł. Masz teraz " + jablka.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion rzepaku za " + (seedsCountMenu * jablka.seedPrice) + "zł. Masz teraz " + jablka.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                         case 7:
@@ -922,7 +925,7 @@ public class Game {
                                             }else {
                                                 Cash = Cash-seedsCountMenu*wisnie.seedPrice;
                                                 wisnie.ownedSeeds = wisnie.ownedSeeds + seedsCountMenu;
-                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + "nasion wiśni za " + (seedsCountMenu * wisnie.seedPrice) + "zł. Masz teraz " + wisnie.ownedSeeds + "nasion i " + Cash + "zł.");
+                                                System.out.println("Właśnie kupiłeś " + seedsCountMenu + " nasion wiśni za " + (seedsCountMenu * wisnie.seedPrice) + "zł. Masz teraz " + wisnie.ownedSeeds + " nasion i " + Cash + "zł.");
                                             }
                                             break;
                                     }

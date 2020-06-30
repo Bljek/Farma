@@ -37,6 +37,7 @@ public class Animals {
         this.reproductive = reproductive;
     }
 
+
     @Override
     public String toString() {
         return "Nazwa: " + species +
